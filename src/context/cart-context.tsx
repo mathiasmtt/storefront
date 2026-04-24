@@ -26,19 +26,23 @@ export const useCart = (): CartContextType => {
 }
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [items, setItems] = useState<LineItem[]>(() => {
-    if (typeof window === "undefined") return []
-    try {
-      const stored = localStorage.getItem(CART_STORAGE_KEY)
-      return stored ? (JSON.parse(stored) as LineItem[]) : []
-    } catch {
-      return []
-    }
-  })
+  const [items, setItems] = useState<LineItem[]>([])
+  const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
+    try {
+      const stored = localStorage.getItem(CART_STORAGE_KEY)
+      if (stored) setItems(JSON.parse(stored) as LineItem[])
+    } catch {
+      // ignorar errores de parsing
+    }
+    setHydrated(true)
+  }, [])
+
+  useEffect(() => {
+    if (!hydrated) return
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items))
-  }, [items])
+  }, [items, hydrated])
 
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
   const subtotal = items.reduce((sum, item) => sum + item.unit_price * item.quantity, 0)
