@@ -6,6 +6,12 @@
 
 E-commerce storefront built with Next.js, designed to connect to a [MedusaJS v2](https://medusajs.com/) backend. Currently running on mock data.
 
+## Screenshots
+
+| Home | Products | Cart |
+|------|----------|------|
+| ![Home](public/screenshots/home.png) | ![Products](public/screenshots/products.png) | ![Cart](public/screenshots/cart.png) |
+
 ## Tech Stack
 
 | Technology          | Version |
