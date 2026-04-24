@@ -28,7 +28,7 @@ export default function CartPage() {
 
   const taxRate = 0.22
   const taxTotal = Math.round(subtotal * taxRate)
-  const shippingTotal = subtotal >= 3000000 ? 0 : 599900
+  const shippingTotal = subtotal >= 300000 ? 0 : 599900
   const total = subtotal + taxTotal + shippingTotal
 
   return (
@@ -124,7 +124,7 @@ export default function CartPage() {
             </div>
             {shippingTotal > 0 && (
               <p className="text-xs text-green-600">
-                Envío gratis a partir de {formatPrice(3000000)}
+                Envío gratis a partir de {formatPrice(300000)}
               </p>
             )}
             <div className="border-t border-gray-200 pt-3 flex justify-between font-bold text-gray-900 text-base">

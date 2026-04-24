@@ -181,7 +181,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
         <div className="border-t border-gray-100 pt-6 space-y-4">
           <div className="flex items-center gap-3 text-sm text-gray-600">
             <Truck className="w-5 h-5 text-gray-400" />
-            <span>Envío gratis a partir de $30.000</span>
+            <span>Envío gratis a partir de $3.000</span>
           </div>
           <div className="flex items-center gap-3 text-sm text-gray-600">
             <RotateCcw className="w-5 h-5 text-gray-400" />
