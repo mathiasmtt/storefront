@@ -1,55 +1,61 @@
 # MyCommerce — Storefront
 
-Prototipo de storefront e-commerce construido con Next.js y diseñado para conectarse a un backend [MedusaJS v2](https://medusajs.com/). Actualmente funciona con datos mock.
+![Status](https://img.shields.io/badge/status-in%20development-yellow)
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
 
-## Stack
+E-commerce storefront built with Next.js, designed to connect to a [MedusaJS v2](https://medusajs.com/) backend. Currently running on mock data.
 
-| Tecnología | Versión |
-|---|---|
-| Next.js (App Router) | 16 |
-| React | 19 |
-| TypeScript | 5 (strict) |
-| Tailwind CSS | 4 |
-| Lucide React | latest |
+## Tech Stack
 
-## Estructura
+| Technology          | Version |
+| ------------------- | ------- |
+| Next.js (App Router)| 16      |
+| React               | 19      |
+| TypeScript          | 5 (strict) |
+| Tailwind CSS        | 4       |
+| Lucide React        | latest  |
+
+## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── productos/          # Listado con filtros por categoría
-│   ├── productos/[handle]/ # Detalle de producto
-│   ├── carrito/            # Carrito de compras
-│   └── checkout/           # Checkout simulado
+│   ├── productos/           # Product listing with category filters
+│   ├── productos/[handle]/  # Product detail page
+│   ├── carrito/             # Shopping cart
+│   └── checkout/            # Simulated checkout
 ├── components/
-│   ├── layout/             # Header, Footer
-│   └── products/           # ProductCard, ProductDetail
-├── context/                # CartProvider (React Context)
-├── data/                   # Datos mock
-└── types/                  # Tipos TypeScript (modelos MedusaJS)
+│   ├── layout/              # Header, Footer
+│   └── products/            # ProductCard, ProductDetail
+├── context/                 # CartProvider (React Context)
+├── data/                    # Mock data
+└── types/                   # TypeScript types (MedusaJS models)
 ```
 
-## Inicio rápido
+## Getting Started
+
+**Prerequisites:** Node.js 18+
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) en el navegador.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Scripts
 
 ```bash
-npm run dev      # Servidor de desarrollo
-npm run build    # Build de producción
-npm run start    # Servidor de producción
-npm run lint     # Linting
+npm run dev      # Development server
+npm run build    # Production build
+npm run start    # Production server
+npm run lint     # Lint
 ```
 
-## Variables de entorno
+## Environment Variables
 
-Crear un archivo `.env.local` en la raíz (requerido al conectar el backend):
+Create a `.env.local` file at the root (required when connecting the backend):
 
 ```env
 NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://localhost:9000
@@ -58,7 +64,7 @@ NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=your_key_here
 
 ## Roadmap
 
-- [ ] Instalar y configurar MedusaJS v2
-- [ ] Reemplazar datos mock por la Store API de MedusaJS
-- [ ] Integrar pagos con Stripe
-- [ ] Autenticación de usuarios
+- [ ] Set up MedusaJS v2 backend
+- [ ] Replace mock data with MedusaJS Store API
+- [ ] Integrate Stripe payments
+- [ ] User authentication
