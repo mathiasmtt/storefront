@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MyCommerce — Storefront
 
-## Getting Started
+Prototipo de storefront e-commerce construido con Next.js y diseñado para conectarse a un backend [MedusaJS v2](https://medusajs.com/). Actualmente funciona con datos mock.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Tecnología | Versión |
+|---|---|
+| Next.js (App Router) | 16 |
+| React | 19 |
+| TypeScript | 5 (strict) |
+| Tailwind CSS | 4 |
+| Lucide React | latest |
+
+## Estructura
+
+```
+src/
+├── app/
+│   ├── productos/          # Listado con filtros por categoría
+│   ├── productos/[handle]/ # Detalle de producto
+│   ├── carrito/            # Carrito de compras
+│   └── checkout/           # Checkout simulado
+├── components/
+│   ├── layout/             # Header, Footer
+│   └── products/           # ProductCard, ProductDetail
+├── context/                # CartProvider (React Context)
+├── data/                   # Datos mock
+└── types/                  # Tipos TypeScript (modelos MedusaJS)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Inicio rápido
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Abre [http://localhost:3000](http://localhost:3000) en el navegador.
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev      # Servidor de desarrollo
+npm run build    # Build de producción
+npm run start    # Servidor de producción
+npm run lint     # Linting
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Variables de entorno
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Crear un archivo `.env.local` en la raíz (requerido al conectar el backend):
 
-## Deploy on Vercel
+```env
+NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://localhost:9000
+NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=your_key_here
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Roadmap
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Instalar y configurar MedusaJS v2
+- [ ] Reemplazar datos mock por la Store API de MedusaJS
+- [ ] Integrar pagos con Stripe
+- [ ] Autenticación de usuarios
