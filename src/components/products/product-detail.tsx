@@ -43,7 +43,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
       {/* Images */}
       <div className="space-y-4">
-        <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-gray-100">
+        <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-gray-100">
           <Image
             src={product.images[activeImage]?.url || product.thumbnail}
             alt={product.images[activeImage]?.alt || product.title}
@@ -59,7 +59,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
               <button
                 key={img.id}
                 onClick={() => setActiveImage(i)}
-                className={`relative w-20 h-24 rounded-lg overflow-hidden border-2 transition-colors ${
+                className={`relative w-20 h-24 rounded-md overflow-hidden border-2 transition-colors ${
                   activeImage === i ? "border-gray-900" : "border-transparent"
                 }`}
               >
@@ -150,7 +150,7 @@ export const ProductDetail = ({ product }: ProductDetailProps) => {
         <button
           onClick={handleAddToCart}
           disabled={!selectedVariant}
-          className={`w-full py-4 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2 ${
+          className={`w-full py-4 rounded-lg text-sm font-semibold transition-all flex items-center justify-center gap-2 ${
             added
               ? "bg-green-600 text-white"
               : selectedVariant

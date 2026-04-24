@@ -1,7 +1,9 @@
 "use client"
 
-import { createContext, useContext, useState, useCallback, ReactNode } from "react"
+import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from "react"
 import { LineItem, Product, ProductVariant } from "@/types/medusa"
+
+const CART_STORAGE_KEY = "mycommerce_cart"
 
 interface CartContextType {
   items: LineItem[]
@@ -24,7 +26,19 @@ export const useCart = (): CartContextType => {
 }
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [items, setItems] = useState<LineItem[]>([])
+  const [items, setItems] = useState<LineItem[]>(() => {
+    if (typeof window === "undefined") return []
+    try {
+      const stored = localStorage.getItem(CART_STORAGE_KEY)
+      return stored ? (JSON.parse(stored) as LineItem[]) : []
+    } catch {
+      return []
+    }
+  })
+
+  useEffect(() => {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items))
+  }, [items])
 
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
   const subtotal = items.reduce((sum, item) => sum + item.unit_price * item.quantity, 0)

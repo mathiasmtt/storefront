@@ -17,7 +17,7 @@ export default function CartPage() {
         <p className="text-gray-500 mb-8">Agregá productos para comenzar tu compra.</p>
         <Link
           href="/productos"
-          className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition-colors"
+          className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors"
         >
           Ver productos
           <ArrowRight className="w-4 h-4" />
@@ -26,7 +26,7 @@ export default function CartPage() {
     )
   }
 
-  const taxRate = 0.21
+  const taxRate = 0.22
   const taxTotal = Math.round(subtotal * taxRate)
   const shippingTotal = subtotal >= 3000000 ? 0 : 599900
   const total = subtotal + taxTotal + shippingTotal
@@ -50,9 +50,9 @@ export default function CartPage() {
           {items.map((item) => (
             <div
               key={item.id}
-              className="flex gap-4 p-4 rounded-xl border border-gray-100 bg-white"
+              className="flex gap-4 p-4 rounded-lg border border-gray-100 bg-white"
             >
-              <div className="relative w-24 h-28 rounded-lg overflow-hidden bg-gray-100 shrink-0">
+              <div className="relative w-24 h-28 rounded-md overflow-hidden bg-gray-100 shrink-0">
                 <Image
                   src={item.thumbnail}
                   alt={item.title}
@@ -107,7 +107,7 @@ export default function CartPage() {
         </div>
 
         {/* Summary */}
-        <div className="bg-gray-50 rounded-2xl p-6 h-fit sticky top-24">
+        <div className="bg-gray-50 rounded-lg p-6 h-fit sticky top-24">
           <h2 className="text-lg font-bold text-gray-900 mb-6">Resumen</h2>
           <div className="space-y-3 text-sm">
             <div className="flex justify-between text-gray-600">
@@ -115,7 +115,7 @@ export default function CartPage() {
               <span>{formatPrice(subtotal)}</span>
             </div>
             <div className="flex justify-between text-gray-600">
-              <span>IVA (21%)</span>
+              <span>IVA (22%)</span>
               <span>{formatPrice(taxTotal)}</span>
             </div>
             <div className="flex justify-between text-gray-600">
@@ -135,7 +135,7 @@ export default function CartPage() {
 
           <Link
             href="/checkout"
-            className="w-full mt-6 py-4 rounded-xl bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
+            className="w-full mt-6 py-4 rounded-lg bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center gap-2"
           >
             Ir al checkout
             <ArrowRight className="w-4 h-4" />

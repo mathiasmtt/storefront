@@ -24,25 +24,22 @@ const footerLinks = {
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-950 text-gray-400">
+    <footer className="border-t border-gray-100 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
-          <div>
-            <h3 className="text-white text-lg font-bold tracking-tight mb-4">MYCOMMERCE</h3>
-            <p className="text-sm leading-relaxed">
-              Moda consciente con materiales premium. Diseñado en Buenos Aires, 
+          <div className="space-y-4">
+            <h3 className="text-gray-900 text-sm font-bold tracking-tight">MYCOMMERCE</h3>
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Moda consciente con materiales premium. Diseñado en Buenos Aires,
               fabricado con responsabilidad.
-            </p>
-            <p className="text-xs mt-4 text-gray-600">
-              Prototipo con MedusaJS
             </p>
           </div>
 
           {/* Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-white text-sm font-semibold mb-4 uppercase tracking-wider">
+              <h4 className="text-xs font-semibold text-gray-400 mb-4 uppercase tracking-widest">
                 {title}
               </h4>
               <ul className="space-y-3">
@@ -50,7 +47,7 @@ export const Footer = () => {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm hover:text-white transition-colors"
+                      className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -61,12 +58,12 @@ export const Footer = () => {
           ))}
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs">© 2025 MYCOMMERCE. Todos los derechos reservados.</p>
-          <div className="flex gap-6 text-xs">
-            <Link href="#" className="hover:text-white transition-colors">Términos</Link>
-            <Link href="#" className="hover:text-white transition-colors">Privacidad</Link>
-            <Link href="#" className="hover:text-white transition-colors">Cookies</Link>
+        <div className="border-t border-gray-100 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-gray-400">© 2025 MYCOMMERCE. Todos los derechos reservados.</p>
+          <div className="flex gap-6 text-xs text-gray-400">
+            <Link href="#" className="hover:text-gray-900 transition-colors">Términos</Link>
+            <Link href="#" className="hover:text-gray-900 transition-colors">Privacidad</Link>
+            <Link href="#" className="hover:text-gray-900 transition-colors">Cookies</Link>
           </div>
         </div>
       </div>
